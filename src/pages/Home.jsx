@@ -27,8 +27,8 @@ getTutorials()
 
   return (
     <>
-      <AddTutorial />
-      <TutorialList tutor={tutorials} />
+      <AddTutorial  gettutor={getTutorials}/>
+      <TutorialList tutor={tutorials} gettutor={getTutorials}/>
     </>
   );
 };

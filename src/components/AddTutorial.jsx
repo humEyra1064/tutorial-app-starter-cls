@@ -1,7 +1,7 @@
 import axios from "axios"
 import { useState } from "react"
 
-const AddTutorial = () => {
+const AddTutorial = ({gettutor}) => {
   const [title, setTitle] = useState("")
   const [description, setDescription] = useState("")
 
@@ -21,6 +21,7 @@ try {
 } catch (error) {
   console.log(error)
 }
+gettutor()
 }
 
   return (

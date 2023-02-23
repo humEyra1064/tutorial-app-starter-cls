@@ -1,8 +1,18 @@
+import axios from "axios"
 import { FaEdit } from "react-icons/fa"
 import { AiFillDelete } from "react-icons/ai"
 
-const TutorialList = ({tutor}) => {
+const TutorialList = ({tutor,gettutor}) => {
  
+  const deleteTutorial=async(id)=>{
+    const BASE_URL =" https://tutorial-api.fullstack.clarusway.com/tutorials"
+    try {
+      await axios.delete(`${BASE_URL}/${id}/`)
+    } catch (error) {
+      console.log(error)
+    }
+gettutor()
+  }
 
   return (
     <div className="container mt-4">
@@ -35,6 +45,7 @@ const TutorialList = ({tutor}) => {
                     size={22}
                     type="button"
                     className="text-danger "
+                    onClick={()=>deleteTutorial(id)}
                   />
                 </td>
               </tr>
