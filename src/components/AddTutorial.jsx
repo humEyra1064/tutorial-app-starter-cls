@@ -6,24 +6,16 @@ const AddTutorial = ({gettutor}) => {
   const [description, setDescription] = useState("")
 
   const handleSubmit = (e) => {
-    e.preventDefault()
-    const newTutorial = {title,description}
-    //bu oluşturduğumuz obje yazılan verileri tuttuğumuz obje bunun ile post gönderme işlemi yapacağız
-    postTutorial(newTutorial)
-    setDescription("")
-    setTitle("")
+   e.preventDefault();
+   const newTutor = {title,description}
+   addTutorials(newTutor)
   }
-const postTutorial =async(newTutorial)=>{
-  const BASE_URL =" https://tutorial-api.fullstack.clarusway.com/tutorials/"
- 
-try {
-   await axios.post(BASE_URL,newTutorial)
-} catch (error) {
-  console.log(error)
-}
-gettutor()
-}
 
+  const addTutorials=async(newTutor)=>{
+    const url ="https://tutorial-api.fullstack.clarusway.com/tutorials/"
+  await axios.post(url,newTutor)
+  gettutor()
+  }
   return (
     <div className="container text-center mt-4">
       <h1 className="display-6 text-danger">Add Your Tutorial</h1>

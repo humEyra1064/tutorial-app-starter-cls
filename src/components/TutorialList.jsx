@@ -1,18 +1,11 @@
-import axios from "axios"
+
 import { FaEdit } from "react-icons/fa"
 import { AiFillDelete } from "react-icons/ai"
 
-const TutorialList = ({tutor,gettutor}) => {
+
+const TutorialList = ({tutor}) => {
  
-  const deleteTutorial=async(id)=>{
-    const BASE_URL =" https://tutorial-api.fullstack.clarusway.com/tutorials"
-    try {
-      await axios.delete(`${BASE_URL}/${id}/`)
-    } catch (error) {
-      console.log(error)
-    }
-gettutor()
-  }
+
 
   return (
     <div className="container mt-4">
@@ -40,12 +33,16 @@ gettutor()
                     size={20}
                     type="button"
                     className="me-2 text-warning"
+                    data-bs-toggle="modal"
+                    data-bs-target="#edit-tutor"
+                    // onClick={()=>editTutorial(id)}
+                   
                   />
                   <AiFillDelete
                     size={22}
                     type="button"
                     className="text-danger "
-                    onClick={()=>deleteTutorial(id)}
+                 
                   />
                 </td>
               </tr>
@@ -53,6 +50,7 @@ gettutor()
           })}
         </tbody>
       </table>
+     
     </div>
   )
 }
