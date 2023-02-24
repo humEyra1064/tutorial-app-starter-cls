@@ -12,10 +12,16 @@ const AddTutorial = ({gettutor}) => {
   }
 
   const addTutorials=async(newTutor)=>{
-    const url ="https://tutorial-api.fullstack.clarusway.com/tutorials/"
+    try {
+       const url ="https://tutorial-api.fullstack.clarusway.com/tutorials/"
   await axios.post(url,newTutor)
+    } catch (error) {
+      console.log(error)
+    }
+   
   gettutor()
   }
+
   return (
     <div className="container text-center mt-4">
       <h1 className="display-6 text-danger">Add Your Tutorial</h1>
